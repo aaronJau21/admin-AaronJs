@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { SidebarComponent } from "./components/sidebar/sidebar.component";
-import { NavbarComponent } from "./components/navbar/navbar.component";
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
-  imports: [SidebarComponent, NavbarComponent],
+  imports: [SidebarComponent, NavbarComponent, RouterOutlet],
   templateUrl: './layout.component.html',
   styles: `
     :host {
@@ -12,4 +13,4 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
     }
   `,
 })
-export default class LayoutComponent { }
+export default class LayoutComponent {}

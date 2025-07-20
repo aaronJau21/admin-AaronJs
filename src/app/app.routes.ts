@@ -9,10 +9,16 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () => import('./shared/layout/layout.component'),
+    children: [
+      {
+        path: 'home',
+        loadComponent: () => import('./dashboard/dashboard.component'),
+      },
+    ],
   },
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/dashboard/home',
     pathMatch: 'full',
   },
 ];
