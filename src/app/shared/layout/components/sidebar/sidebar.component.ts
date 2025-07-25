@@ -1,9 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { SvgComponent } from "../../../svg/svg.component";
+
+interface route {
+  title: string;
+  path: string;
+  icon: string;
+}
 
 @Component({
   selector: 'sidebar',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, SvgComponent],
   templateUrl: './sidebar.component.html',
   styles: `
     :host {
@@ -13,8 +20,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       @apply cursor-default
     }
   `,
-  host:{
-    class:'w-72'
-  }
+  host: {
+    class: 'w-72',
+  },
 })
-export class SidebarComponent { }
+export class SidebarComponent {
+  public routesProjects = signal<route[]>([
+    {
+      title: 'Proyectos',
+      path: '/dashboard/proyectos/lista',
+      icon:'projectos'
+    },
+  ]);
+}

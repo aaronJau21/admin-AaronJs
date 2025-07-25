@@ -14,6 +14,10 @@ export const routes: Routes = [
         path: 'home',
         loadComponent: () => import('./dashboard/dashboard.component'),
       },
+      {
+        path: 'proyectos',
+        loadChildren: () => import('./proyectos/proyectos.routes'),
+      },
     ],
   },
   {

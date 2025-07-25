@@ -1,4 +1,4 @@
-<aside class="m-5 bg-gray-200 dark:bg-base-200 h-[89vh]">
+<aside class="m-5 bg-gray-200 dark:bg-base-200 h-[89vh] rounded-lg">
   <nav class="h-full overflow-y-auto p-5">
     <h3>Inicio</h3>
     <ul class="pl-9 my-1">
@@ -12,5 +12,19 @@
       </li>
     </ul>
     <h3>Proyectos</h3>
+    <ul class="pl-9 my-1">
+      @for (project of routesProjects(); track project.path) {
+      <li class="hover:bg-base-300 w-full rounded-lg p-2">
+        <a
+          [routerLink]="project.path"
+          routerLinkActive="text-success"
+          class="cursor-pointer flex items-center gap-x-2"
+        >
+        <svg-icon [name]="project.icon" class=""/>
+          {{ project.title }}
+        </a>
+      </li>
+      }
+    </ul>
   </nav>
 </aside>
