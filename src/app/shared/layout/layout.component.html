@@ -1,8 +1,13 @@
 <navbar />
 
 <div class="flex">
+  @if (sidebarStateService.showSideBar()) {
+
   <sidebar />
-  <div class="flex-1 m-5 bg-base-200">
+
+  }
+
+  <div class="flex-1 m-5 bg-base-200 h-[89vh]">
     <router-outlet />
   </div>
 </div>

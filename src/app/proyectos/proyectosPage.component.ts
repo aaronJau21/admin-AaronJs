@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { ProductService } from './services/product.service';
+import { ProjectStatus } from './enum/status-proyect.enum';
 
 @Component({
   selector: 'app-proyectos-page',
@@ -10,4 +13,13 @@ import { Component } from '@angular/core';
     }
   `,
 })
-export class ProyectosPageComponent { }
+export class ProyectosPageComponent {
+  private readonly productService = inject(ProductService);
+
+  public getProjects = rxResource({
+    stream: () => this.productService.getProduct(),
+  });
+  public getStatusLabel(status: string): string {
+    return ProjectStatus[status as keyof typeof ProjectStatus] ?? status;
+  }
+}

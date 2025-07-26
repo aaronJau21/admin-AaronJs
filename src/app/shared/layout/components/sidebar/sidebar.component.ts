@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { SvgComponent } from "../../../svg/svg.component";
+import { SvgComponent } from '../../../svg/svg.component';
+import { SidebarStateService } from '../../state/sidebarState.service';
 
 interface route {
   title: string;
@@ -29,7 +30,7 @@ export class SidebarComponent {
     {
       title: 'Proyectos',
       path: '/dashboard/proyectos/lista',
-      icon:'projectos'
+      icon: 'projectos',
     },
   ]);
 }
