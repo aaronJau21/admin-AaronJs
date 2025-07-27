@@ -4,6 +4,11 @@ export interface IGetProject {
   estado: string;
   fecha_inicio: string;
   fecha_fin: string;
-  client: string;
+  client: IClient;
   __v: number;
+}
+
+export interface IClient{
+  _id: string;
+  fullName: string;
 }
