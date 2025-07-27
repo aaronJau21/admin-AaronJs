@@ -1,6 +1,12 @@
 <section class="p-9">
   <h3 class="text-center text-3xl font-bold">Proyectos</h3>
 
+  @if (role === 'Administrador') {
+  <div class="my-5">
+    <button class="btn btn-success">Agregar</button>
+  </div>
+  }
+
   <div class="overflow-x-auto">
     <table class="table">
       <!-- head -->

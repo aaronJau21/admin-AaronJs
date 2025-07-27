@@ -15,6 +15,8 @@ import { ProjectStatus } from './enum/status-proyect.enum';
 })
 export class ProyectosPageComponent {
   private readonly productService = inject(ProductService);
+  public user = JSON.parse(localStorage.getItem('user') || '{}');
+  public role = this.user.role.name;
 
   public getProjects = rxResource({
     stream: () => this.productService.getProduct(),
